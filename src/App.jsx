@@ -43,8 +43,9 @@ const App = () => {
           borderBottom: "1px solid #ddd",
         }}
       >
-        {/* TODO: reference typographies*/}
-        <div>ImageUpload</div>
+        <div>
+          <img src="/logo.svg" alt="Logo" />
+        </div>
         <button
           onClick={toggleTheme}
           style={{
