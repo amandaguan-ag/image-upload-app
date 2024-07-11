@@ -16,7 +16,7 @@ const App = () => {
       setTimeout(() => {
         setImageUrl(reader.result);
         setLoading(false);
-      }, 3000); 
+      }, 3000);
     };
     reader.readAsDataURL(file);
   };
@@ -83,6 +83,7 @@ const App = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "calc(100vh - 70px)",
+          flexDirection: "column",
         }}
       >
         <div
@@ -91,6 +92,7 @@ const App = () => {
             border: "none",
             borderRadius: "12px",
             backgroundColor: darkTheme ? "#30363f" : "#fff",
+            textAlign: "center",
           }}
         >
           {!loading && !imageUrl && (
@@ -99,6 +101,35 @@ const App = () => {
           {loading && <Loader />}
           {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
         </div>
+        {imageUrl && !loading && (
+          <div className="button-container">
+            <button
+              onClick={() => navigator.clipboard.writeText(imageUrl)}
+              className="custom-button"
+            >
+              <img src="/Link.svg" alt="Link Icon" className="button-icon" />
+              Share
+            </button>
+            <button
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = imageUrl;
+                link.download = "downloaded_image";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="custom-button"
+            >
+              <img
+                src="/download.svg"
+                alt="Download Icon"
+                className="button-icon"
+              />
+              Download
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

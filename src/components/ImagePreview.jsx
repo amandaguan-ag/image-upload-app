@@ -20,20 +20,6 @@ const ImagePreview = ({ imageUrl }) => {
   return (
     <div className="image-preview-container">
       <img src={imageUrl} alt="Uploaded" className="uploaded-image" />
-      <div className="button-container">
-        <button onClick={handleCopy} className="custom-button">
-          <img src="/Link.svg" alt="Link Icon" className="button-icon" />
-          Share
-        </button>
-        <button onClick={handleDownload} className="custom-button">
-          <img
-            src="/download.svg"
-            alt="Download Icon"
-            className="button-icon"
-          />
-          Download
-        </button>
-      </div>
     </div>
   );
 };
