@@ -19,3 +19,25 @@
 .light .image-uploader {
   background-color: #FFFFFF;
 }
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.medium-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.25rem;
+}
+
+.small-text {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1rem;
+}
+
+.button-text {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 0.875rem;
+}

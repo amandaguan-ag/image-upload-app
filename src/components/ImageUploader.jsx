@@ -77,14 +77,16 @@ const ImageUploader = ({ onUpload }) => {
             <div style={{ marginBottom: "10px" }}>
               <img src="exit.svg" alt="Upload Icon" />
             </div>
-            {/* TODO: reference typographies */}
-            <div>
+            <div className="medium-text">
               Drag & drop a file or{" "}
               <span style={{ color: "#007bff", textDecoration: "underline" }}>
                 browse files
               </span>
             </div>
-            <div style={{ marginTop: "10px", color: "gray" }}>
+            <div
+              className="small-text"
+              style={{ marginTop: "10px", color: "gray" }}
+            >
               JPG, PNG or GIF - Max file size 2MB
             </div>
           </label>

@@ -24,12 +24,14 @@ const App = () => {
         border: "1px solid #F9FAFBCC",
         borderRadius: "8px",
         padding: "8px",
+        display: "flex",
       }
     : {
         backgroundColor: "#FFFFFF",
         border: "1px solid #E5E7EB",
         borderRadius: "8px",
         padding: "8px",
+        display: "flex",
       };
 
   return (
@@ -53,11 +55,12 @@ const App = () => {
             border: "none",
           }}
         >
-          <img
-            style={buttonStyle}
-            src={darkTheme ? "/Sun_fill.svg" : "/Moon_fill.svg"}
-            alt={darkTheme ? "Sun Icon" : "Moon Icon"}
-          />
+          <div style={buttonStyle}>
+            <img
+              src={darkTheme ? "/Sun_fill.svg" : "/Moon_fill.svg"}
+              alt={darkTheme ? "Sun Icon" : "Moon Icon"}
+            />
+          </div>
         </button>
       </div>
       <div>
