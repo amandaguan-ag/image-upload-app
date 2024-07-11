@@ -41,7 +41,7 @@ const App = () => {
           display: "flex",
           justifyContent: "space-between",
           padding: "10px 20px",
-          borderBottom: "1px solid #ddd",
+          borderBottom: "1px solid #212936",
         }}
       >
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -83,10 +83,10 @@ const App = () => {
             padding: "15px",
             border: "none",
             borderRadius: "12px",
-            backgroundColor: "#fff",
+            backgroundColor: darkTheme ? "#30363f" : "#fff",
           }}
         >
-          <ImageUploader onUpload={handleUpload} />
+          <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../App.css";
 
-const ImageUploader = ({ onUpload }) => {
+const ImageUploader = ({ onUpload, darkTheme }) => {
   const [dragOver, setDragOver] = useState(false);
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -82,13 +82,19 @@ const ImageUploader = ({ onUpload }) => {
             <div style={{ marginBottom: "10px" }}>
               <img src="exit.svg" alt="Upload Icon" />
             </div>
-            <div className="medium-text">
+            <div
+              className="medium-text"
+              style={{ color: darkTheme ? "#E5E7EB" : "#000" }}
+            >
               Drag & drop a file or{" "}
-              <span style={{ color: "#3662E3" }}>browse files</span>
+              <span style={{ color: "rgba(30,70,147,1)" }}>browse files</span>
             </div>
             <div
               className="small-text"
-              style={{ marginTop: "10px", color: "gray" }}
+              style={{
+                marginTop: "10px",
+                color: darkTheme ? "#F9FAFB" : "#6B7280",
+              }}
             >
               JPG, PNG or GIF - Max file size 2MB
             </div>

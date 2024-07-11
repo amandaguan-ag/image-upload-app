@@ -13,7 +13,7 @@
 }
 
 .dark .image-uploader {
-  background-color: #4D5562;
+  background-color: #30363f;
 }
 
 .light .image-uploader {
@@ -28,6 +28,12 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.25rem;
+}
+
+.small-text {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1rem;
 }
 
 /* .light-text {
