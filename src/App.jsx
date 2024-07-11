@@ -93,29 +93,31 @@ const App = () => {
           flexDirection: "column",
         }}
       >
-        <div className="outer-container">
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              border: "none",
-              borderRadius: "12px",
-              backgroundColor: darkTheme ? "#30363f" : "#fff",
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "2%",
-            }}
-          >
-            {!loading && !imageUrl && (
-              <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
-            )}
-            {loading && <Loader />}
-            {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
+        {!loading && (
+          <div className="outer-container">
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                border: "none",
+                borderRadius: "12px",
+                backgroundColor: darkTheme ? "#30363f" : "#fff",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "2%",
+              }}
+            >
+              {!loading && !imageUrl && (
+                <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
+              )}
+              {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
+            </div>
           </div>
-        </div>
+        )}
+        {loading && <Loader />}
         {imageUrl && !loading && (
           <div className="button-container">
             <button onClick={handleCopy} className="custom-button">
