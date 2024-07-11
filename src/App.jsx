@@ -34,7 +34,6 @@ const App = () => {
 
   return (
     <div className={darkTheme ? "dark" : "light"}>
-      {/* TODO: reference header size */}
       <div
         style={{
           display: "flex",
@@ -49,15 +48,13 @@ const App = () => {
         <button
           onClick={toggleTheme}
           style={{
-            ...buttonStyle,
             backgroundColor: "transparent",
-            border: "none",
             cursor: "pointer",
-            display: "flex",
+            border: "none",
           }}
         >
-          {/* TODO: align button with design */}
           <img
+            style={buttonStyle}
             src={darkTheme ? "/Sun_fill.svg" : "/Moon_fill.svg"}
             alt={darkTheme ? "Sun Icon" : "Moon Icon"}
           />
