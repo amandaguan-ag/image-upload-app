@@ -1,7 +1,17 @@
 import { useState } from "react";
+import ImageUploader from "./components/ImageUploader";
 
 const App = () => {
+  const [imageUrl, setImageUrl] = useState("");
   const [darkTheme, setDarkTheme] = useState(false);
+
+  const handleUpload = (file) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImageUrl(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const toggleTheme = () => {
     setDarkTheme(!darkTheme);
@@ -32,6 +42,10 @@ const App = () => {
           {/* TODO: reference real icon */}
           {darkTheme ? "🌙" : "☀️"}
         </button>
+      </div>
+      <div>
+        <ImageUploader onUpload={handleUpload} />
+        {/* TODO: ImagePreview component will go here */}
       </div>
     </div>
   );
