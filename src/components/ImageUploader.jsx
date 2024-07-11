@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../App.css";
 
 const ImageUploader = ({ onUpload }) => {
   const [dragOver, setDragOver] = useState(false);
@@ -54,12 +55,15 @@ const ImageUploader = ({ onUpload }) => {
       onDrop={handleDrop}
       className="image-uploader"
       style={{
-        border: dragOver ? "solid black" : "dashed gray",
+        border: dragOver ? "solid black" : "dashed #E5E7EB",
         borderRadius: "10px",
         padding: "20px",
         textAlign: "center",
-        maxWidth: "600px",
-        margin: "auto",
+        height: "300px",
+        width: "600px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
       {loading ? (
@@ -79,7 +83,7 @@ const ImageUploader = ({ onUpload }) => {
             </div>
             <div className="medium-text">
               Drag & drop a file or{" "}
-              <span style={{ color: "#007bff", textDecoration: "underline" }}>
+              <span style={{ color: "#3662E3" }}>
                 browse files
               </span>
             </div>

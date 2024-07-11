@@ -63,9 +63,24 @@ const App = () => {
           </div>
         </button>
       </div>
-      <div>
-        <ImageUploader onUpload={handleUpload} />
-        {/* TODO: ImagePreview component will go here */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "calc(100vh - 70px)",
+        }}
+        >
+        <div
+          style={{
+            padding: "15px",
+            border: "none",
+            borderRadius: "12px",
+            backgroundColor: "#fff",
+          }}
+        >
+          <ImageUploader onUpload={handleUpload} />
+        </div>
       </div>
     </div>
   );
