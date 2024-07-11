@@ -49,7 +49,8 @@ const ImageUploader = ({ onUpload }) => {
 
   return (
     <div
-      //TODO: align ImageUpload with design
+      // TODO: align ImageUpload with design
+      // TODO: design dash seem more sparse
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
@@ -83,9 +84,7 @@ const ImageUploader = ({ onUpload }) => {
             </div>
             <div className="medium-text">
               Drag & drop a file or{" "}
-              <span style={{ color: "#3662E3" }}>
-                browse files
-              </span>
+              <span style={{ color: "#3662E3" }}>browse files</span>
             </div>
             <div
               className="small-text"

@@ -44,8 +44,15 @@ const App = () => {
           borderBottom: "1px solid #ddd",
         }}
       >
-        <div>
-          <img src="/logo.svg" alt="Logo" />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src="/logo-small.svg"
+            alt="Logo"
+            style={{ height: "40px", marginRight: "10px" }}
+          />
+          <span className={`medium-text ${darkTheme ? "light-text" : ""}`}>
+            ImageUpload
+          </span>
         </div>
         <button
           onClick={toggleTheme}
@@ -70,7 +77,7 @@ const App = () => {
           alignItems: "center",
           height: "calc(100vh - 70px)",
         }}
-        >
+      >
         <div
           style={{
             padding: "15px",

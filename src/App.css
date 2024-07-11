@@ -30,14 +30,12 @@ body {
   line-height: 1.25rem;
 }
 
-.small-text {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 1rem;
-}
+/* .light-text {
+  color: #F9FAFB;
+} */
 
-.button-text {
+/* .button-text {
   font-weight: 600;
   font-size: 10px;
   line-height: 0.875rem;
-}
+} */
