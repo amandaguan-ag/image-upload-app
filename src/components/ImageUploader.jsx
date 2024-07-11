@@ -48,6 +48,7 @@ const ImageUploader = ({ onUpload }) => {
 
   return (
     <div
+      //TODO: align ImageUpload with design
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
@@ -74,8 +75,7 @@ const ImageUploader = ({ onUpload }) => {
           />
           <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
             <div style={{ marginBottom: "10px" }}>
-              {/* TODO: reference real icon */}
-              <img src="/upload-icon.png" alt="Upload Icon" />
+              <img src="exit.svg" alt="Upload Icon" />
             </div>
             {/* TODO: reference typographies */}
             <div>
