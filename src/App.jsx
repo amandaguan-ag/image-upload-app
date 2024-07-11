@@ -25,7 +25,7 @@ const App = () => {
   const handleCopy = () => {
     navigator.clipboard.writeText(imageUrl);
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 3000); 
+    setTimeout(() => setShowToast(false), 3000);
   };
 
   const toggleTheme = () => {
@@ -90,51 +90,64 @@ const App = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "calc(100vh - 70px)",
-          flexDirection: "column",
         }}
       >
-        <div
-          style={{
-            padding: "15px",
-            border: "none",
-            borderRadius: "12px",
-            backgroundColor: darkTheme ? "#30363f" : "#fff",
-            textAlign: "center",
-          }}
-        >
-          {!loading && !imageUrl && (
-            <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
-          )}
-          {loading && <Loader />}
-          {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
-        </div>
-        {imageUrl && !loading && (
-          <div className="button-container">
-            <button onClick={handleCopy} className="custom-button">
-              <img src="/Link.svg" alt="Link Icon" className="button-icon" />
-              Share
-            </button>
-            <button
-              onClick={() => {
-                const link = document.createElement("a");
-                link.href = imageUrl;
-                link.download = "downloaded_image";
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-              className="custom-button"
-            >
-              <img
-                src="/download.svg"
-                alt="Download Icon"
-                className="button-icon"
-              />
-              Download
-            </button>
+        <div className="outer-container">
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              border: "none",
+              borderRadius: "12px",
+              backgroundColor: darkTheme ? "#30363f" : "#fff",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "2%",
+            }}
+          >
+            {!loading && !imageUrl && (
+              <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
+            )}
+            {loading && <Loader />}
+            {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
+            {imageUrl && !loading && (
+              <div className="button-container">
+                <button onClick={handleCopy} className="custom-button">
+                  <img
+                    src="/Link.svg"
+                    alt="Link Icon"
+                    className="button-icon"
+                  />
+                  Share
+                </button>
+                <button
+                  onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = imageUrl;
+                    link.download = "downloaded_image";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="custom-button"
+                >
+                  <img
+                    src="/download.svg"
+                    alt="Download Icon"
+                    className="button-icon"
+                  />
+                  Download
+                </button>
+              </div>
+            )}
+            {showToast && (
+              <div className="toast">Address copied to clipboard!</div>
+            )}
           </div>
-        )}
-        {showToast && <div className="toast">Address copied to clipboard!</div>}
+        </div>
       </div>
     </div>
   );
