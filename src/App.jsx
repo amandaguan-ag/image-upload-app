@@ -8,6 +8,7 @@ const App = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [darkTheme, setDarkTheme] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const handleUpload = (file) => {
     setLoading(true);
@@ -19,6 +20,12 @@ const App = () => {
       }, 3000);
     };
     reader.readAsDataURL(file);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(imageUrl);
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000); 
   };
 
   const toggleTheme = () => {
@@ -103,10 +110,7 @@ const App = () => {
         </div>
         {imageUrl && !loading && (
           <div className="button-container">
-            <button
-              onClick={() => navigator.clipboard.writeText(imageUrl)}
-              className="custom-button"
-            >
+            <button onClick={handleCopy} className="custom-button">
               <img src="/Link.svg" alt="Link Icon" className="button-icon" />
               Share
             </button>
@@ -130,6 +134,7 @@ const App = () => {
             </button>
           </div>
         )}
+        {showToast && <div className="toast">Address copied to clipboard!</div>}
       </div>
     </div>
   );
