@@ -1,15 +1,22 @@
 import { useState } from "react";
 import ImageUploader from "./components/ImageUploader";
+import ImagePreview from "./components/ImagePreview";
+import Loader from "./components/Loader";
 import "./App.css";
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [darkTheme, setDarkTheme] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleUpload = (file) => {
+    setLoading(true);
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImageUrl(reader.result);
+      setTimeout(() => {
+        setImageUrl(reader.result);
+        setLoading(false);
+      }, 3000); 
     };
     reader.readAsDataURL(file);
   };
@@ -86,7 +93,11 @@ const App = () => {
             backgroundColor: darkTheme ? "#30363f" : "#fff",
           }}
         >
-          <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
+          {!loading && !imageUrl && (
+            <ImageUploader onUpload={handleUpload} darkTheme={darkTheme} />
+          )}
+          {loading && <Loader />}
+          {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
         </div>
       </div>
     </div>

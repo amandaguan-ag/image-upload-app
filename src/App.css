@@ -1,3 +1,19 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.medium-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.25rem;
+}
+
+.small-text {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1rem;
+}
+
 .dark {
   background-color: #121826;
   color: #F9FAFB;
@@ -20,28 +36,43 @@
   background-color: #FFFFFF;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 600px;
 }
 
-.medium-text {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.25rem;
+.loader-bar {
+  width: 200px;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
-.small-text {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 1rem;
+.loader-progress {
+  width: 50%;
+  height: 100%;
+  background-color: #2d719e;
+  animation: loader-animation 2s infinite;
 }
 
-/* .light-text {
-  color: #F9FAFB;
-} */
+.loader-text {
+  font-size: 16px;
+  color: #000;
+}
 
-/* .button-text {
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 0.875rem;
-} */
+@keyframes loader-animation {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 0;
+  }
+}

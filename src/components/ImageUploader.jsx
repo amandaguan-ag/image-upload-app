@@ -3,8 +3,6 @@ import "../App.css";
 
 const ImageUploader = ({ onUpload, darkTheme }) => {
   const [dragOver, setDragOver] = useState(false);
-  const [file, setFile] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -20,20 +18,14 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
     setDragOver(false);
     const droppedFile = event.dataTransfer.files[0];
     if (validateFile(droppedFile)) {
-      setLoading(true);
-      setFile(droppedFile);
       onUpload(droppedFile);
-      setLoading(false);
     }
   };
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     if (validateFile(selectedFile)) {
-      setLoading(true);
-      setFile(selectedFile);
       onUpload(selectedFile);
-      setLoading(false);
     }
   };
 
@@ -49,7 +41,6 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
 
   return (
     <div
-      // TODO: align ImageUpload with design
       // TODO: design dash seem more sparse
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
@@ -67,40 +58,34 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
         justifyContent: "center",
       }}
     >
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          <input
-            type="file"
-            accept="image/jpeg,image/png,image/gif"
-            onChange={handleFileChange}
-            style={{ display: "none" }}
-            id="fileInput"
-          />
-          <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
-            <div style={{ marginBottom: "10px" }}>
-              <img src="exit.svg" alt="Upload Icon" />
-            </div>
-            <div
-              className="medium-text"
-              style={{ color: darkTheme ? "#E5E7EB" : "#000" }}
-            >
-              Drag & drop a file or{" "}
-              <span style={{ color: "rgba(30,70,147,1)" }}>browse files</span>
-            </div>
-            <div
-              className="small-text"
-              style={{
-                marginTop: "10px",
-                color: darkTheme ? "#F9FAFB" : "#6B7280",
-              }}
-            >
-              JPG, PNG or GIF - Max file size 2MB
-            </div>
-          </label>
-        </>
-      )}
+      <input
+        type="file"
+        accept="image/jpeg,image/png,image/gif"
+        onChange={handleFileChange}
+        style={{ display: "none" }}
+        id="fileInput"
+      />
+      <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
+        <div style={{ marginBottom: "10px" }}>
+          <img src="exit.svg" alt="Upload Icon" />
+        </div>
+        <div
+          className="medium-text"
+          style={{ color: darkTheme ? "#E5E7EB" : "#000" }}
+        >
+          Drag & drop a file or{" "}
+          <span style={{ color: "rgba(30,70,147,1)" }}>browse files</span>
+        </div>
+        <div
+          className="small-text"
+          style={{
+            marginTop: "10px",
+            color: darkTheme ? "#F9FAFB" : "#6B7280",
+          }}
+        >
+          JPG, PNG or GIF - Max file size 2MB
+        </div>
+      </label>
     </div>
   );
 };
