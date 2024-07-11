@@ -51,13 +51,14 @@ const ImageUploader = ({ onUpload }) => {
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
+      className="image-uploader"
       style={{
         border: dragOver ? "solid black" : "dashed gray",
         borderRadius: "10px",
         padding: "20px",
         textAlign: "center",
         maxWidth: "600px",
-        margin: "auto auto",
+        margin: "auto",
       }}
     >
       {loading ? (
@@ -74,10 +75,7 @@ const ImageUploader = ({ onUpload }) => {
           <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
             <div style={{ marginBottom: "10px" }}>
               {/* TODO: reference real icon */}
-              <img
-                src="/upload-icon.png"
-                alt="Upload Icon"
-              />
+              <img src="/upload-icon.png" alt="Upload Icon" />
             </div>
             {/* TODO: reference typographies */}
             <div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ImageUploader from "./components/ImageUploader";
+import "./App.css";
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -17,9 +18,22 @@ const App = () => {
     setDarkTheme(!darkTheme);
   };
 
+  const buttonStyle = darkTheme
+    ? {
+        backgroundColor: "#4D5562",
+        border: "1px solid #F9FAFBCC",
+        borderRadius: "8px",
+        padding: "8px",
+      }
+    : {
+        backgroundColor: "#FFFFFF",
+        border: "1px solid #E5E7EB",
+        borderRadius: "8px",
+        padding: "8px",
+      };
+
   return (
     <div className={darkTheme ? "dark" : "light"}>
-      {/* TODO: implement dark-light effect*/}
       {/* TODO: reference header size */}
       <div
         style={{
@@ -34,13 +48,18 @@ const App = () => {
         <button
           onClick={toggleTheme}
           style={{
+            ...buttonStyle,
             backgroundColor: "transparent",
             border: "none",
             cursor: "pointer",
+            display: "flex",
           }}
         >
-          {/* TODO: reference real icon */}
-          {darkTheme ? "🌙" : "☀️"}
+          {/* TODO: align button with design */}
+          <img
+            src={darkTheme ? "/Sun_fill.svg" : "/Moon_fill.svg"}
+            alt={darkTheme ? "Sun Icon" : "Moon Icon"}
+          />
         </button>
       </div>
       <div>

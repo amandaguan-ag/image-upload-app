@@ -1,0 +1,21 @@
+.dark {
+  background-color: #121826;
+  color: #F9FAFB;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.light {
+  background-color: #F9FAFBCC;
+  color: #000;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dark .image-uploader {
+  background-color: #4D5562;
+}
+
+.light .image-uploader {
+  background-color: #FFFFFF;
+}
