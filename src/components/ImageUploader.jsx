@@ -76,7 +76,9 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
           style={{ color: darkTheme ? "#E5E7EB" : "#000" }}
         >
           Drag & drop a file or{" "}
-          <span style={{ color: "rgba(30,70,147,1)" }}>browse files</span>
+          <span style={{ color: darkTheme ? "#6EA0FF" : "#1e4693" }}>
+            browse files
+          </span>
         </div>
         <div
           className="small-text"
