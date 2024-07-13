@@ -59,6 +59,7 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
         flexDirection: "column",
         justifyContent: "center",
       }}
+      aria-label="Image Uploader"
     >
       <input
         type="file"

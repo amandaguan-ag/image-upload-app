@@ -50,7 +50,7 @@ const App = () => {
 
   return (
     <div className={darkTheme ? "dark" : "light"}>
-      <div
+      <header
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -75,6 +75,9 @@ const App = () => {
             cursor: "pointer",
             border: "none",
           }}
+          aria-label={
+            darkTheme ? "Switch to light theme" : "Switch to dark theme"
+          }
         >
           <div style={buttonStyle}>
             <img
@@ -83,8 +86,8 @@ const App = () => {
             />
           </div>
         </button>
-      </div>
-      <div
+      </header>
+      <main
         style={{
           display: "flex",
           justifyContent: "center",
@@ -94,7 +97,7 @@ const App = () => {
         }}
       >
         {!loading && (
-          <div className="outer-container">
+          <section className="outer-container">
             <div
               style={{
                 width: "100%",
@@ -115,11 +118,11 @@ const App = () => {
               )}
               {imageUrl && !loading && <ImagePreview imageUrl={imageUrl} />}
             </div>
-          </div>
+          </section>
         )}
         {loading && <Loader />}
         {imageUrl && !loading && (
-          <div className="button-container">
+          <section className="button-container">
             <button onClick={handleCopy} className="custom-button">
               <img src="/Link.svg" alt="Link Icon" className="button-icon" />
               Share
@@ -142,10 +145,14 @@ const App = () => {
               />
               Download
             </button>
+          </section>
+        )}
+        {showToast && (
+          <div className="toast" role="alert">
+            Address copied to clipboard!
           </div>
         )}
-        {showToast && <div className="toast">Address copied to clipboard!</div>}
-      </div>
+      </main>
     </div>
   );
 };
