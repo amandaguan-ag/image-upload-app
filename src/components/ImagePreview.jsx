@@ -17,9 +17,9 @@ const ImagePreview = ({ imageUrl }) => {
   };
 
   return (
-    <div className="image-preview-container">
+    <figure className="image-preview-container">
       <img src={imageUrl} alt="Uploaded" className="uploaded-image" />
-    </div>
+    </figure>
   );
 };
 

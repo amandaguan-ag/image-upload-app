@@ -40,7 +40,7 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
   };
 
   return (
-    <div
+    <section
       // TODO: design dash seem more sparse
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
@@ -91,7 +91,7 @@ const ImageUploader = ({ onUpload, darkTheme }) => {
           JPG, PNG or GIF - Max file size 2MB
         </div>
       </label>
-    </div>
+    </section>
   );
 };
 
